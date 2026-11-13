@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auto Scan Tool — Made by Amlan for RMS</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f1f5f9;
+      color: #0f172a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .card {
+      background: #ffffff;
+      max-width: 620px;
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+      padding: 36px;
+    }
+    .badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+    .subtitle {
+      font-size: 15px;
+      font-weight: 600;
+      color: #64748b;
+      margin-bottom: 24px;
+    }
+    .drag-box {
+      background: #f8fafc;
+      border: 2px dashed #cbd5e1;
+      border-radius: 12px;
+      padding: 28px 20px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .drag-hint {
+      font-size: 14px;
+      color: #475569;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+    .bookmarklet-btn {
+      display: inline-block;
+      background: #16a34a;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 6px 16px rgba(22, 163, 74, 0.3);
+      cursor: grab;
+      transition: transform 0.15s, background 0.15s;
+      user-select: none;
+    }
+    .bookmarklet-btn:hover {
+      background: #15803d;
+      transform: translateY(-2px);
+    }
+    .bookmarklet-btn:active {
+      cursor: grabbing;
+    }
+    .steps {
+      margin-bottom: 24px;
+    }
+    .steps h2 {
+      font-size: 17px;
+      margin-bottom: 12px;
+      color: #1e293b;
+    }
+    .step-item {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 15px;
+      line-height: 1.5;
+      color: #334155;
+    }
+    .step-num {
+      background: #0f172a;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 13px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    kbd {
+      background: #e2e8f0;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 13px;
+      font-family: monospace;
+      font-weight: 600;
+    }
+    .manual-box {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .manual-text {
+      font-size: 14px;
+      color: #64748b;
+    }
+    .copy-btn {
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .copy-btn:hover {
+      background: #1d4ed8;
+    }
+    .footer {
+      margin-top: 24px;
+      text-align: center;
+      font-size: 13px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <span class="badge">RMS Utility</span>
+    <h1>Auto Scan Tool</h1>
+    <div class="subtitle">Made by Amlan for RMS</div>
+
+    <div class="drag-box">
+      <div class="drag-hint">👇 Drag this green button straight up to your browser's Bookmarks Bar:</div>
+      <a id="bookmarklet-link" class="bookmarklet-btn" href="#">Auto Scan Tool</a>
+    </div>
+
+    <div class="steps">
+      <h2>How to Install &amp; Use (10 Seconds)</h2>
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div>Make sure your Bookmarks Bar is visible by pressing <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div><strong>Click and hold</strong> the green <strong>Auto Scan Tool</strong> button above and drag it onto your Bookmarks Bar.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div>Open the bag scanning screen, click <strong>Auto Scan Tool</strong> on your Bookmarks Bar, and click <strong>Start Auto Scan</strong>.</div>
+      </div>
+    </div>
+
+    <div class="manual-box">
+      <div class="manual-text">Prefer creating a bookmark manually? Copy the code here:</div>
+      <button id="copy-btn" class="copy-btn">Copy Bookmark Code</button>
+    </div>
+
+    <div class="footer">
+      Automatically filters 13-character barcodes (2 letters + 9 digits + 2 letters) at 100ms latency.
+    </div>
+  </div>
+
+  <script>
+    const bookmarkletCode = String.raw`javascript:(function(){const old=document.getElementById('abs-floating-panel');if(old){const btn=document.getElementById('abs-start');if(btn)btn.click();return;}const REGEX=/\b[A-Za-z]{2}\d{9}[A-Za-z]{2}\b/g,REGEX_ONE=/\b[A-Za-z]{2}\d{9}[A-Za-z]{2}\b/;let cfg={left:localStorage.getItem('abs_left_input')||'',right:localStorage.getItem('abs_right_barcode')||'',delay:100,enterDelay:30};let run=false,scanned=new Set(),lTimer=null,eTimer=null,manualIn=null;function resIn(el){if(!el)return null;const t=el.tagName?el.tagName.toUpperCase():'';if(t==='INPUT'||t==='TEXTAREA')return el;const c=el.querySelector('input:not([type="hidden"]),textarea,[contenteditable="true"]');if(c)return c;const w=el.closest('div,label,form,td');return w?(w.querySelector('input:not([type="hidden"]),textarea')||el):el;}function findLeftInput(){if(manualIn&&document.body.contains(manualIn)&&manualIn.offsetWidth>0)return manualIn;if(cfg.left){try{const s=resIn(document.querySelector(cfg.left));if(s&&!pnl.contains(s)&&s.offsetWidth>0)return s;}catch(e){}}const ins=Array.from(document.querySelectorAll('input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="file"]):not([disabled]):not([readonly]),textarea:not([disabled]):not([readonly])')).filter(el=>!pnl.contains(el)&&el.offsetWidth>0&&el.offsetHeight>0&&getComputedStyle(el).visibility!=='hidden');if(!ins.length)return null;let best=null,bestSc=-9999;for(const el of ins){const r=el.getBoundingClientRect();let sc=0;if(r.left<window.innerWidth*0.55)sc+=40;if(r.top>60&&r.top<window.innerHeight-40)sc+=15;const attr=[el.placeholder,el.name,el.id,el.className,el.getAttribute('aria-label')].join(' ').toLowerCase();const near=(el.closest('div,td,form,label')?.innerText||'').slice(0,120).toLowerCase();const comb=attr+' '+near;if(/article|barcode|scan|bag|consignment|awb|number|code|item|enter/.test(comb))sc+=50;if(/search|filter|date|weight|pin|user|pass|login/.test(comb)&&!/article|barcode|scan/.test(comb))sc-=30;if(document.activeElement===el)sc+=25;if(sc>bestSc){bestSc=sc;best=el;}}return best;}function getBarcodeItems(inEl){const all=Array.from(document.body.querySelectorAll('*'));const inRect=inEl?inEl.getBoundingClientRect():null;const minLeft=inRect?Math.min(window.innerWidth*0.4,inRect.left+60):window.innerWidth*0.35;let rightItems=[],allItems=[];const seenR=new Set(),seenA=new Set();for(const el of all){if(pnl.contains(el))continue;const tag=el.tagName;if(tag==='SCRIPT'||tag==='STYLE'||tag==='NOSCRIPT'||tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT'||tag==='OPTION')continue;if(el.offsetWidth<=0||el.offsetHeight<=0)continue;const txt=el.innerText||el.textContent||'';if(!REGEX_ONE.test(txt))continue;if(Array.from(el.children).some(c=>REGEX_ONE.test(c.innerText||c.textContent||'')))continue;const m=txt.match(REGEX);if(!m)continue;const r=el.getBoundingClientRect();for(const raw of m){const code=raw.toUpperCase();if(!seenA.has(code)){seenA.add(code);allItems.push({code,el});}if(r.left>=minLeft&&!seenR.has(code)){seenR.add(code);rightItems.push({code,el});}}}return rightItems.length>0?rightItems:allItems;}function setVal(el,txt){el.focus();try{const p=Object.getPrototypeOf(el);const d=Object.getOwnPropertyDescriptor(p,'value')||Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value');if(d&&d.set)d.set.call(el,txt);else el.value=txt;}catch(e){el.value=txt;}el.dispatchEvent(new InputEvent('input',{bubbles:true,cancelable:true,inputType:'insertText',data:txt}));el.dispatchEvent(new Event('change',{bubbles:true}));}function fireEnter(el){['keydown','keypress','keyup'].forEach(t=>{const ev=new KeyboardEvent(t,{key:'Enter',code:'Enter',keyCode:13,which:13,charCode:13,bubbles:true,cancelable:true,composed:true});Object.defineProperty(ev,'keyCode',{get:()=>13});Object.defineProperty(ev,'which',{get:()=>13});Object.defineProperty(ev,'charCode',{get:()=>13});el.dispatchEvent(ev);});const f=el.closest('form');if(f){const b=f.querySelector('button[type="submit"],input[type="submit"]');if(b)b.click();else if(typeof f.requestSubmit==='function'){try{f.requestSubmit();}catch(e){}}else f.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true}));}}function scanOne(el,code,cb){setVal(el,'');setVal(el,code);eTimer=setTimeout(()=>{if(!run)return;el.focus();fireEnter(el);if(cb)cb();},cfg.enterDelay);}function getNext(inEl){const items=getBarcodeItems(inEl);for(const it of items){if(!scanned.has(it.code))return it;}return null;}function countValid(){return getBarcodeItems(findLeftInput()).length;}function next(){if(!run)return;const inEl=findLeftInput();if(!inEl){stat('No input box found on page! Click "Pick Elements".','#dc2626');stop();return;}const item=getNext(inEl);if(!item){stat('Done! Scanned '+scanned.size+' barcode(s).','#16a34a');stop();return;}scanned.add(item.code);item.el.style.backgroundColor='#bbf7d0';item.el.scrollIntoView({behavior:'auto',block:'nearest'});stat('Scanned ('+scanned.size+'): '+item.code,'#2563eb');scanOne(inEl,item.code,()=>{if(run)lTimer=setTimeout(next,cfg.delay);});}function start(){if(run)return;run=true;bStart.innerText='Stop Auto Scan';bStart.style.background='#dc2626';next();}function stop(){run=false;clearTimeout(lTimer);clearTimeout(eTimer);bStart.innerText='Start Auto Scan';bStart.style.background='#16a34a';}function getSel(el,list){let p=[],c=el;while(c&&c.nodeType===1&&c.tagName!=='BODY'){let s=c.nodeName.toLowerCase();if(!list&&c.id&&!/\d{2,}/.test(c.id)){p.unshift('#'+CSS.escape(c.id));break;}if(list&&(s==='td'||s==='th')&&c.parentNode){const i=Array.from(c.parentNode.children).indexOf(c)+1;s+=':nth-child('+i+')';}else if(c.className&&typeof c.className==='string'){const cls=c.className.trim().split(/\s+/).filter(x=>x&&!x.includes(':'));if(cls.length)s+='.'+cls.slice(0,2).map(x=>CSS.escape(x)).join('.');}p.unshift(s);c=c.parentNode;if(p.length>=4)break;}return p.join(' > ');}function pick(){stop();stat('Step 1: Click LEFT input box...','#d97706');function pIn(e){if(pnl.contains(e.target))return;e.preventDefault();e.stopPropagation();document.removeEventListener('click',pIn,true);const a=resIn(e.target);manualIn=a;cfg.left=getSel(a,false);localStorage.setItem('abs_left_input',cfg.left);a.style.outline='2px solid #2563eb';setTimeout(()=>a.style.outline='',800);scanned.clear();stat('Linked! Found '+countValid()+' valid barcode(s).','#16a34a');}setTimeout(()=>document.addEventListener('click',pIn,true),150);}const pnl=document.createElement('div');pnl.id='abs-floating-panel';pnl.style.cssText='position:fixed;bottom:35px;left:50%;transform:translateX(-50%);z-index:999999;background:#fff;border:1px solid #cbd5e1;border-radius:12px;padding:22px;width:380px;box-shadow:0 10px 28px rgba(0,0,0,0.22);font-family:sans-serif;font-size:16px;color:#1e293b;';pnl.innerHTML='<div style="margin-bottom:14px;display:flex;justify-content:space-between;align-items:flex-start;"><div><div style="font-weight:bold;font-size:20px;color:#0f172a;">Auto Scan Tool</div><div style="font-size:13px;color:#64748b;font-weight:600;margin-top:3px;">Made by Amlan for RMS</div></div><div style="display:flex;gap:12px;align-items:center;"><span id="abs-reset" style="cursor:pointer;color:#2563eb;font-size:14px;font-weight:600;">Reset</span><span id="abs-close" style="cursor:pointer;color:#94a3b8;font-size:20px;font-weight:bold;line-height:1;">✕</span></div></div><div id="abs-status" style="margin-bottom:14px;font-size:15px;color:#475569;">Scanning page...</div><div style="display:flex;gap:10px;margin-bottom:14px;"><button id="abs-start" style="flex:1;padding:11px 14px;background:#16a34a;color:#fff;border:none;border-radius:7px;cursor:pointer;font-weight:bold;font-size:15px;">Start Auto Scan</button><button id="abs-pick" style="padding:11px 14px;background:#e2e8f0;color:#334155;border:none;border-radius:7px;cursor:pointer;font-size:15px;font-weight:600;" title="Optional manual input override">Pick Input</button></div><div style="display:flex;align-items:center;justify-content:space-between;font-size:15px;"><label>Latency (ms):</label><input id="abs-delay" type="number" value="100" step="25" min="50" style="width:85px;padding:5px 8px;border:1px solid #cbd5e1;border-radius:6px;font-size:15px;"></div>';document.body.appendChild(pnl);const sEl=document.getElementById('abs-status'),bStart=document.getElementById('abs-start'),bPick=document.getElementById('abs-pick'),bRes=document.getElementById('abs-reset'),bCls=document.getElementById('abs-close'),inDel=document.getElementById('abs-delay');function stat(m,c){sEl.innerText=m;sEl.style.color=c||'#475569';}bStart.onclick=()=>run?stop():start();bPick.onclick=pick;bRes.onclick=()=>{scanned.clear();stat('Reset! '+countValid()+' barcode(s) ready.','#16a34a');};bCls.onclick=()=>{stop();pnl.remove();};inDel.onchange=e=>{cfg.delay=Math.max(50,parseInt(e.target.value,10)||100);};const initIn=findLeftInput(),initCnt=countValid();if(initIn){initIn.style.outline='2px solid #2563eb';setTimeout(()=>initIn.style.outline='',800);stat('Auto-detected! '+initCnt+' barcode(s) ready.','#16a34a');}else{stat('Ready ('+initCnt+' barcode(s) found).','#475569');}})();`;
+
+    const linkEl = document.getElementById('bookmarklet-link');
+    const copyBtn = document.getElementById('copy-btn');
+
+    linkEl.href = bookmarkletCode;
+
+    linkEl.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('Drag and drop this green button up to your Bookmarks Bar (or use the "Copy Bookmark Code" button below).');
+    });
+
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(bookmarkletCode).then(() => {
+        copyBtn.textContent = 'Copied to Clipboard!';
+        copyBtn.style.background = '#16a34a';
+        setTimeout(() => {
+          copyBtn.textContent = 'Copy Bookmark Code';
+          copyBtn.style.background = '#2563eb';
+        }, 2000);
+      });
+    });
+  </script>
+
+</body>
+</html>

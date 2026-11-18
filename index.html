@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Auto Scan Tool — Made by Amlan for RMS</title>
-  <!-- Red & Gold India Post Style Mail Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c62828'/%3E%3Cpath d='M8 20h48v26a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4V20z' fill='%23ffeb3b'/%3E%3Cpath d='M8 20l24 17L56 20H8z' fill='%23fbc02d'/%3E%3Cpath d='M8 18h48l-24 17L8 18z' fill='%23ffffff'/%3E%3Crect x='4' y='12' width='56' height='4' rx='2' fill='%23ffeb3b'/%3E%3C/svg%3E" />
   <style>
     * {
@@ -78,14 +77,43 @@
       background: #fffbeb;
       border: 2px dashed #f59e0b;
       border-radius: 12px;
-      padding: 26px 20px;
+      padding: 24px 20px;
       text-align: center;
       margin-bottom: 24px;
+    }
+    .icon-picker {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .icon-picker span {
+      font-size: 13px;
+      color: #78350f;
+      font-weight: 600;
+      margin-right: 4px;
+    }
+    .icon-choice {
+      background: #ffffff;
+      border: 1px solid #fcd34d;
+      border-radius: 8px;
+      padding: 5px 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .icon-choice.active,
+    .icon-choice:hover {
+      background: #fef3c7;
+      border-color: #d97706;
+      transform: scale(1.06);
     }
     .drag-hint {
       font-size: 14px;
       color: #92400e;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       font-weight: 600;
     }
     .bookmarklet-btn {
@@ -150,16 +178,6 @@
       font-family: monospace;
       font-weight: 600;
     }
-    .tip-box {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 14px 16px;
-      font-size: 13px;
-      color: #475569;
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
     .manual-box {
       border-top: 1px solid #e2e8f0;
       padding-top: 20px;
@@ -216,6 +234,14 @@
     </div>
 
     <div class="drag-box">
+      <div class="icon-picker">
+        <span>Choose Bookmark Icon:</span>
+        <button class="icon-choice active" data-icon="📮">📮</button>
+        <button class="icon-choice" data-icon="✉️">✉️</button>
+        <button class="icon-choice" data-icon="📩">📩</button>
+        <button class="icon-choice" data-icon="📦">📦</button>
+        <button class="icon-choice" data-icon="⚡">⚡</button>
+      </div>
       <div class="drag-hint">👇 Drag this button straight up to your browser's Bookmarks Bar:</div>
       <a id="bookmarklet-link" class="bookmarklet-btn" href="#">📮 Auto Scan Tool</a>
     </div>
@@ -228,21 +254,16 @@
       </div>
       <div class="step-item">
         <div class="step-num">2</div>
-        <div><strong>Click and hold</strong> the red <strong>📮 Auto Scan Tool</strong> button above and drag it onto your Bookmarks Bar.</div>
+        <div><strong>Click and hold</strong> the red <strong>Auto Scan Tool</strong> button above and drag it onto your Bookmarks Bar.</div>
       </div>
       <div class="step-item">
         <div class="step-num">3</div>
-        <div>On the bag scanning page, click <strong>📮 Auto Scan Tool</strong> on your Bookmarks Bar, then click <strong>Start Auto Scan</strong>.</div>
+        <div>On the bag scanning page, click <strong>Auto Scan Tool</strong> on your Bookmarks Bar, then click <strong>Start Auto Scan</strong>.</div>
       </div>
     </div>
 
-    <div class="tip-box">
-      <strong>💡 Want the red &amp; gold mail icon instead of the browser globe?</strong><br />
-      Press <kbd>Ctrl</kbd> + <kbd>D</kbd> to bookmark this page first (which saves the red &amp; gold mail icon), then click <strong>Copy Bookmark Code</strong> below, right-click your new bookmark, select <strong>Edit</strong>, and paste the code into the <strong>URL</strong> field.
-    </div>
-
     <div class="manual-box">
-      <div class="manual-text">Or copy the bookmark code directly:</div>
+      <div class="manual-text">Prefer creating a bookmark manually? Copy the code here:</div>
       <button id="copy-btn" class="copy-btn">Copy Bookmark Code</button>
     </div>
 
@@ -256,12 +277,22 @@
 
     const linkEl = document.getElementById('bookmarklet-link');
     const copyBtn = document.getElementById('copy-btn');
+    const iconChoices = document.querySelectorAll('.icon-choice');
 
     linkEl.href = bookmarkletCode;
 
+    iconChoices.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        iconChoices.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        const emoji = btn.getAttribute('data-icon');
+        linkEl.textContent = `${emoji} Auto Scan Tool`;
+      });
+    });
+
     linkEl.addEventListener('click', (e) => {
       e.preventDefault();
-      alert('Drag and drop this red "📮 Auto Scan Tool" button up to your Bookmarks Bar!');
+      alert('Drag and drop this red button straight up to your Bookmarks Bar!');
     });
 
     copyBtn.addEventListener('click', () => {
